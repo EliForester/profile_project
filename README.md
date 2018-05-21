@@ -28,5 +28,7 @@ pytz==2018.3
 ### Notes
 
 DEBUG is set to True because setting it false will also validate ALLOWED_HOSTS
+
 No extra credit attempted
+
 PW validation uses UserAttributeSimilarityValidator max_similarity = 0.3
