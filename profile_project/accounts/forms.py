@@ -18,7 +18,6 @@ class UserProfileForm(ModelForm):
         fields = ['dob', 'bio', 'image']
         labels = {'Date of Birth', 'Bio', 'Profile Image'}
 
-
     def clean(self):
         data = self.cleaned_data
         if data['bio']:
