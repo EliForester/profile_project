@@ -17,17 +17,17 @@
             {% endif %}
 
             {% if user.userprofile.dob %}
-                    {{ user.userprofile.dob }}<br>
+                <h3>{{ user.userprofile.dob }}</h3><br>
             {% endif %}
 
             {% if user.email %}
-                Email: {{ user.email }}<br>
+                <b>Email:</b> {{ user.email }}<br>
             {% endif %}
 
             {% if user.userprofile %}
 
                 {% if user.userprofile.bio %}
-                    Bio: {{ user.userprofile.bio }}<br>
+                    <b>Bio:</b> {{ user.userprofile.bio }}<br>
                 {% endif %}
 
                 {% if user.userprofile.image %}

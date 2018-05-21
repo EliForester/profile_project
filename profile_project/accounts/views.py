@@ -82,11 +82,12 @@ def edit(request):
             user_form.save()
             profile_form.save()
             messages.success(request, 'Profile updated')
+            return HttpResponseRedirect(reverse('home'))
         else:
             # TODO make these display correctly instead of a UL
             messages.error(request, user_form.errors)
             messages.error(request, profile_form.errors)
-        return HttpResponseRedirect(reverse('accounts:edit'))
+            return HttpResponseRedirect(reverse('accounts:edit'))
     else:
         user_form = UserForm(instance=request.user)
         profile_form = UserProfileForm(instance=request.user.userprofile)

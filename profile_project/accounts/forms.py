@@ -7,12 +7,17 @@ from django.contrib.auth.hashers import check_password
 
 class UserProfileForm(ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['dob'].widget.attrs.update({'id': 'datepicker'})
+
     dob = DateField(input_formats=['%Y-%m-%d', '%m/%d/%Y', '%m/%d/%y'])
 
     class Meta:
         model = UserProfile
         fields = ['dob', 'bio', 'image']
         labels = {'Date of Birth', 'Bio', 'Profile Image'}
+
 
     def clean(self):
         data = self.cleaned_data
