@@ -2,7 +2,10 @@
 
 {% block body %}
     <div class="grid-25">
-        nav here maybe?
+        &nbsp;
+        {% comment %}
+        Can add a nav when there are more functions
+        {% endcomment %}
     </div>
     <div class="grid-75">
         {% if user.is_authenticated %}
@@ -28,7 +31,7 @@
                 {% endif %}
 
                 {% if user.userprofile.image %}
-                    <img src="{{ user.userprofile.image.url }}">
+                    <img src="{{ user.userprofile.image.url }}"><br>
                 {% endif %}
 
             {% endif %}

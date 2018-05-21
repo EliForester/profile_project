@@ -1,5 +1,6 @@
 body {
-background-color: #d2d2d2;
+  background-color: #d2d2d2;
+  font-family: "Roboto Condensed", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -87,4 +88,8 @@ input[type="reset"].button-primary,
 input[type="button"].button-primary,
 button.button-primary {
   background-color: #484848;
+}
+
+.circle--secondary--module > h1, .circle--secondary--module > h2, .circle--secondary--module > h3, .circle--secondary--module > h4, .circle--secondary--module > h5, .circle--secondary--module > h6 {
+  font-family: "Roboto Condensed", sans-serif;
 }
