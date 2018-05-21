@@ -1,11 +1,44 @@
 {% extends 'layout.html' %}
+
 {% block body %}
     <div class="grid-25">
         nav here maybe?
     </div>
     <div class="grid-75">
-        <h1>Welcome!</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad amet assumenda beatae blanditiis, deserunt doloremque ea earum excepturi id, impedit ipsam magnam nulla obcaecati, quidem quis soluta tenetur vitae?</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad amet assumenda beatae blanditiis, deserunt doloremque ea earum excepturi id, impedit ipsam magnam nulla obcaecati, quidem quis soluta tenetur vitae?</p>
+        {% if user.is_authenticated %}
+            <h1>Welcome {{ user.username }}!</h1>
+            {% if user.first_name and user.last_name %}
+                <h2>{{ user.first_name }} {{ user.last_name }}</h2><br>
+            {% else %}
+                <h2>Hello stranger, how about finishing your profile?</h2><br>
+            {% endif %}
+
+            {% if user.userprofile.dob %}
+                    {{ user.userprofile.dob }}<br>
+            {% endif %}
+
+            {% if user.email %}
+                Email: {{ user.email }}<br>
+            {% endif %}
+
+            {% if user.userprofile %}
+
+                {% if user.userprofile.bio %}
+                    Bio: {{ user.userprofile.bio }}<br>
+                {% endif %}
+
+                {% if user.userprofile.image %}
+                    <img src="{{ user.userprofile.image.url }}">
+                {% endif %}
+
+            {% endif %}
+
+            <a class="button" href="{% url 'accounts:edit' %}">Edit Profile</a>
+        {% else %}
+            <h1>Welcome new human!</h1>
+            <p>Sign up, or log in:</p>
+            <a class="button" href="{% url 'accounts:sign_up' %}">Sign Up</a>
+            <a class="button" href="{% url 'accounts:sign_in' %}">Sign In</a>
+        {% endif %}
     </div>
 {% endblock %}
