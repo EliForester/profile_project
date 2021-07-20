@@ -19,9 +19,10 @@ Created on Python 3 w Django 2
 
 requirements.txt
 ```
-Django==2.0.3
-Pillow==5.1.0
+Django==2.2.24
+Pillow==8.2.0
 pytz==2018.3
+sqlparse==0.4.1
 
 ```
 
